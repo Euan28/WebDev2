@@ -1,0 +1,17 @@
+.task {
+  border: 1px solid black;
+  margin: 10px 0;
+  padding-left: 10px;
+  line-height: 100%;
+  position: relative;
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.task span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  text-transform: capitalize;
+}

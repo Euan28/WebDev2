@@ -1,0 +1,33 @@
+<h3>Module List</h3>
+
+<form action="/employee" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{employee._id}}">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+        <label>Coursework Project Title</label>
+        <input type="text" class="form-control" name="fullName" placeholder="Coursework Project Title" value="{{employee.fullName}}">
+        <div class="text-danger">
+            {{employee.fullNameError}}</div>
+        </div>
+        <div class="form-group col-md-6">
+        <label>Module</label>
+        <input type="text" class="form-control" name="module" placeholder="Module" value="{{employee.module}}">
+    </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Due Date</label>
+            <input type="date" class="form-control" name="mobile" placeholder="Due Date" value="{{employee.mobile}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Completion Date</label>
+            <input type="date" class="form-control" name="city" placeholder="Completion Date" value="{{employee.city}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/employee/list"><i class="fa fa-list-alt"></i> View All</a>
+        <a class="btn btn-secondary" href="/employee/test"><i class="fa fa-list-alt"></i> Test</a>
+         <a class="btn btn-secondary" href="/"><i class="fa fa-list-alt"></i> Milestones</a>
+    </div>
+</form>
