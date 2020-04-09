@@ -16,6 +16,4 @@ var employeeSchema = new mongoose.Schema({
     }
 });
 
-
-
 mongoose.model('Employee', employeeSchema);
