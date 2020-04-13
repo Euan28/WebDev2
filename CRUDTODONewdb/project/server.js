@@ -1,4 +1,4 @@
-require('./models/employee.model');
+require('./models/project.model');
 require('./models/task');
 
 //dependencies 
@@ -36,7 +36,7 @@ app.use(session({
   })
 }));
 
-const employeeController = require('./controllers/employeeController');
+const projectController = require('./controllers/projectController');
 
 var app = express();
 
@@ -73,5 +73,5 @@ app.listen(3000, () => {
     console.log('Express server started at port : 3000');
 });
 
-app.use('/employee', employeeController.router);
+app.use('/pages', projectController.router);
 

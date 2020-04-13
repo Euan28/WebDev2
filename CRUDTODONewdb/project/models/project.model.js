@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 
 //data inputted into the database, coursework, project, due date and completion date, validation included
-var employeeSchema = new mongoose.Schema({
-    project: {
+var projectSchema = new mongoose.Schema({
+    project1: {
         type: String,
         required: 'This field is required.'
     },
@@ -18,4 +18,4 @@ var employeeSchema = new mongoose.Schema({
     }
 });
 
-mongoose.model('Employee', employeeSchema);
+mongoose.model('Project', projectSchema);

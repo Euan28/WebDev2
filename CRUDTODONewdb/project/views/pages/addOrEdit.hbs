@@ -1,0 +1,32 @@
+<h3>Module List</h3>
+<form action="/pages" method="POST" autocomplete="off">
+	<input type="hidden" name="_id" value="{{project._id}}">
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label>Coursework Project Title</label>
+			<input type="text" class="form-control" name="project1" placeholder="Coursework Project Title" value="{{project.project1}}">
+			<div class="text-danger">{{project.fullNameError}}</div>
+		</div>
+		<div class="form-group col-md-6">
+			<label>Module</label>
+			<input type="text" class="form-control" name="module" placeholder="Module" value="{{project.module}}">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label>Due Date</label>
+			<input type="date" class="form-control" name="dueDate" placeholder="Due Date" value="{{project.dueDate}}">
+		</div>
+		<div class="form-group col-md-6">
+			<label>Completion Date</label>
+			<input type="date" class="form-control" name="comDate" placeholder="Completion Date" value="{{project.comDate}}">
+		</div>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+		<br><br>
+        <a class="btn btn-secondary" href="/pages/list"><i class="fa fa-list-alt"></i> View Projects</a>
+		<a class="btn btn-secondary" href="/"><i class="fa fa-list-alt"></i> Add Milestones</a>
+        <a class="btn btn-secondary" href="/pages/login"> Log Out</a>
+	</div>
+</form>

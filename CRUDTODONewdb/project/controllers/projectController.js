@@ -2,44 +2,44 @@
 const express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
-const Employee = mongoose.model('Employee');
+const Project = mongoose.model('Project');
 const Task = require('../models/task');
 var User = require('../models/user');
 
 //router.get (GET request) and res.render (compiles your template) is used to get the directories 
 //and send the user to the page they which to be sent too, also validation like layout to choose the specific layout
 router.get('/', (req, res) => {
-    res.render("employee/addOrEdit", {
+    res.render("pages/addOrEdit", {
         viewTitle: "Insert Module"
     });
 });
 
 router.get('/home', (req, res) => {
-    res.render('employee/home', {
+    res.render('pages/home', {
         layout: 'main.hbs'
     });
 });
 
 router.get('/login', (req, res) => {
-    res.render('employee/login', {
+    res.render('pages/login', {
         layout: 'main.hbs'
     });
 });
 
 router.get('/register', (req, res) => {
-    res.render('employee/register', {
+    res.render('pages/register', {
         layout: 'main.hbs'
     });
 });
 
 router.get('/index', function(req, res) {
-    res.render('employee/index', {
+    res.render('pages/index', {
         layout: 'main.hbs'
     });
 });
 
 router.get('/edit', function(req, res) {
-    res.render('employee/edit', {
+    res.render('pages/edit', {
         layout: 'main.hbs'
     });
 });
@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
 });
 
 //POST route for updating data
-router.post('/employee/login', function(req, res, next) {
+router.post('/pages/login', function(req, res, next) {
     // confirm that user typed same password twice
     if (req.body.password !== req.body.passwordConf) {
         var err = new Error('Passwords do not match.');
@@ -76,7 +76,7 @@ router.post('/employee/login', function(req, res, next) {
             if (error) {
                 return next(error);
             } else {
-                return res.render('employee/addOrEdit');
+                return res.render('pages/addOrEdit');
             }
         });
 
@@ -87,7 +87,7 @@ router.post('/employee/login', function(req, res, next) {
                 err.status = 401;
                 return next(err);
             } else {
-                return res.render('employee/addOrEdit');
+                return res.render('pages/addOrEdit');
             }
         });
     } else {
@@ -105,7 +105,7 @@ router.get('/logout', function(req, res, next) {
             if (err) {
                 return next(err);
             } else {
-                return res.render('employee/login');
+                return res.render('pages/login');
             }
         });
     }
@@ -113,20 +113,20 @@ router.get('/logout', function(req, res, next) {
 
 //inserting data considering the project, coursework etc including validation
 function insertRecord(req, res) {
-    var employee = new Employee();
-    employee.project = req.body.project;
-    employee.module = req.body.module;
-    employee.dueDate = req.body.dueDate;
-    employee.comDate = req.body.comDate;
-    employee.save((err, doc) => {
+    var project = new Project();
+    project.project1 = req.body.project1;
+    project.module = req.body.module;
+    project.dueDate = req.body.dueDate;
+    project.comDate = req.body.comDate;
+    project.save((err, doc) => {
         if (!err)
-            res.redirect('employee/list');
+            res.redirect('pages/list');
         else {
             if (err.name == 'ValidationError') {
                 handleValidationError(err, req.body);
-                res.render("employee/addOrEdit", {
+                res.render("pages/addOrEdit", {
                     viewTitle: "Insert Module",
-                    employee: req.body
+                    project: req.body
                 });
             } else
                 console.log('Error during record insertion : ' + err);
@@ -136,19 +136,19 @@ function insertRecord(req, res) {
 
 //function to allow users to be able to edit their list of courseworks etc
 function updateRecord(req, res) {
-    Employee.findOneAndUpdate({
+    Project.findOneAndUpdate({
         _id: req.body._id
     }, req.body, {
         new: true
     }, (err, doc) => {
         if (!err) {
-            res.redirect('employee/list');
+            res.redirect('pages/list');
         } else {
             if (err.name == 'ValidationError') {
                 handleValidationError(err, req.body);
-                res.render("employee/addOrEdit", {
+                res.render("pages/addOrEdit", {
                     viewTitle: 'Update Module',
-                    employee: req.body
+                    project: req.body
                 });
             } else
                 console.log('Error during record update : ' + err);
@@ -158,9 +158,9 @@ function updateRecord(req, res) {
 
 //get reuqest to get the list rendered
 router.get('/list', (req, res) => {
-    Employee.find((err, docs) => {
+    Project.find((err, docs) => {
         if (!err) {
-            res.render("employee/list", {
+            res.render("project/list", {
                 list: docs
             });
         } else {
@@ -187,11 +187,11 @@ function handleValidationError(err, body) {
 
 //finding the inserted data by id and rendering the page with updated data
 router.get('/:id', (req, res) => {
-    Employee.findById(req.params.id, (err, doc) => {
+    Project.findById(req.params.id, (err, doc) => {
         if (!err) {
-            res.render("employee/addOrEdit", {
+            res.render("pages/addOrEdit", {
                 viewTitle: "Update Module",
-                employee: doc
+                project: doc
             });
         }
     });
@@ -199,9 +199,9 @@ router.get('/:id', (req, res) => {
 
 //deleting selecting coursework/module
 router.get('/delete/:id', (req, res) => {
-    Employee.findByIdAndRemove(req.params.id, (err, doc) => {
+    Project.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
-            res.redirect('/employee/list');
+            res.redirect('/pages/list');
         } else {
             console.log('Error in module delete :' + err);
         }
@@ -224,7 +224,7 @@ module.exports = {
             .find({})
             .then(result => {
                 result.sort(sortTask)
-                res.render('employee/index', {
+                res.render('pages/index', {
                     layout: 'main.hbs',
                     tasks: result
                 })
@@ -249,7 +249,7 @@ module.exports = {
             })
             .then(result => {
                 result.layout = 'main.hbs';
-                res.render('employee/edit', result); 
+                res.render('pages/edit', result); 
             })
             .catch(err => res.json(err))
     },

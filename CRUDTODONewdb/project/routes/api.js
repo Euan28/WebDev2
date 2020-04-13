@@ -1,6 +1,6 @@
 //dependencies 
 const router = require('express').Router();
-const taskController = require('../controllers/employeeController');
+const taskController = require('../controllers/projectController');
 //used to complete actions stored in the controller 
 router
 .route('/task/:id')
