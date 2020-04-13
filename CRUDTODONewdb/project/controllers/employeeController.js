@@ -110,10 +110,10 @@ router.get('/logout', function(req, res, next) {
 
 function insertRecord(req, res) {
     var employee = new Employee();
-    employee.fullName = req.body.fullName;
+    employee.project = req.body.project;
     employee.module = req.body.module;
-    employee.mobile = req.body.mobile;
-    employee.city = req.body.city;
+    employee.dueDate = req.body.dueDate;
+    employee.comDate = req.body.comDate;
     employee.save((err, doc) => {
         if (!err)
             res.redirect('employee/list');

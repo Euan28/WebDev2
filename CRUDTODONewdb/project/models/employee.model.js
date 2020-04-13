@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
 var employeeSchema = new mongoose.Schema({
-    fullName: {
+    project: {
         type: String,
         required: 'This field is required.'
     },
     module: {
         type: String
     },
-    mobile: {
+    dueDate: {
         type: String
     },
-    city: {
+    comDate: {
         type: String
     }
 });
