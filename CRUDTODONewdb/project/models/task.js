@@ -1,6 +1,8 @@
+//dependency
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+//data inputted into the database, coursework/milestones section, validation included
 const taskSchema = new Schema({
 	task: {
 		type: String,

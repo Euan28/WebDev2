@@ -1,6 +1,8 @@
+//dependencies 
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+//data inputted into the database, validations, for a new user when registering
 var UserSchema = new mongoose.Schema({
     email: {
         type: String,

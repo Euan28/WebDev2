@@ -1,3 +1,4 @@
+//dependencies 
 const express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
@@ -5,6 +6,8 @@ const Employee = mongoose.model('Employee');
 const Task = require('../models/task');
 var User = require('../models/user');
 
+//router.get (GET request) and res.render (compiles your template) is used to get the directories 
+//and send the user to the page they which to be sent too, also validation like layout to choose the specific layout
 router.get('/', (req, res) => {
     res.render("employee/addOrEdit", {
         viewTitle: "Insert Module"
@@ -68,7 +71,7 @@ router.post('/employee/login', function(req, res, next) {
             username: req.body.username,
             password: req.body.password,
         }
-
+//creating a new user
         User.create(userData, function(error, user) {
             if (error) {
                 return next(error);
@@ -94,7 +97,7 @@ router.post('/employee/login', function(req, res, next) {
     }
 })
 
-// GET for logout logout
+//GET reuqest for logout
 router.get('/logout', function(req, res, next) {
     if (req.session) {
         // delete session object
@@ -108,6 +111,7 @@ router.get('/logout', function(req, res, next) {
     }
 });
 
+//inserting data considering the project, coursework etc including validation
 function insertRecord(req, res) {
     var employee = new Employee();
     employee.project = req.body.project;
@@ -130,6 +134,7 @@ function insertRecord(req, res) {
     });
 }
 
+//function to allow users to be able to edit their list of courseworks etc
 function updateRecord(req, res) {
     Employee.findOneAndUpdate({
         _id: req.body._id
@@ -151,6 +156,7 @@ function updateRecord(req, res) {
     });
 }
 
+//get reuqest to get the list rendered
 router.get('/list', (req, res) => {
     Employee.find((err, docs) => {
         if (!err) {
@@ -163,6 +169,7 @@ router.get('/list', (req, res) => {
     });
 });
 
+//function for if these fields hit an error
 function handleValidationError(err, body) {
     for (field in err.errors) {
         switch (err.errors[field].path) {
@@ -178,6 +185,7 @@ function handleValidationError(err, body) {
     }
 }
 
+//finding the inserted data by id and rendering the page with updated data
 router.get('/:id', (req, res) => {
     Employee.findById(req.params.id, (err, doc) => {
         if (!err) {
@@ -189,6 +197,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+//deleting selecting coursework/module
 router.get('/delete/:id', (req, res) => {
     Employee.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
@@ -199,12 +208,16 @@ router.get('/delete/:id', (req, res) => {
     });
 });
 
+//sorting tasks
 const sortTask = (a, b) => {
     const taskA = a.task.toLowerCase();
     const taskB = b.task.toLowerCase();
     return (taskA < taskB) ? -1 : (taskA > taskB) ? 1 : 0;
 }
 
+//milestones section
+//render the index page and show the result
+//notice note the public folder for further details
 module.exports = {
     findAll: function(req, res) {
         Task
@@ -218,7 +231,7 @@ module.exports = {
             })
             .catch(err => res.json(err))
     },
-
+//create a  new milestone
     create: function(req, res) {
         Task
             .create(req.body)
@@ -236,11 +249,11 @@ module.exports = {
             })
             .then(result => {
                 result.layout = 'main.hbs';
-                res.render('employee/edit', result); // diff
+                res.render('employee/edit', result); 
             })
             .catch(err => res.json(err))
     },
-
+//complete function if you want a milestone to be completed
     complete: function(req, res) {
         Task
             .findOneAndUpdate({
@@ -251,7 +264,7 @@ module.exports = {
             .then(result => res.json(result))
             .catch(err => res.json(err))
     },
-
+//delete function if you want a milestone to be deleted
     deleteOne: function(req, res) {
         Task
             .remove({
@@ -260,7 +273,7 @@ module.exports = {
             .then(result => res.json(result))
             .catch(err => res.json(err))
     },
-
+//update function if you want a milestone to be updated
     updateName: function(req, res) {
         Task
             .findOneAndUpdate({
