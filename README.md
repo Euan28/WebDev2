@@ -11,6 +11,4 @@ npm install bcrypt@4.0.1 body-parser@1.18.3 connect-mongo@1.3.2 express@4.17.1 e
 cd .\CRUDTODONewdb\project
 node .\server.js
 
-http://localhost:3000/login 
-OR
-htpp://localhost:3000/register
+http://localhost:3000/pages
