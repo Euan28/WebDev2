@@ -1,5 +1,6 @@
 # WebDev2
 
+Create the folder C:\Users\euan6\mongo-datacrudtodonewdb to allow the .bat to store user inputted data from the database
 Ensure that .bat file is running (Start MongoDBCRUDTODONewdb)
 This application uses MongoDB and MongoDB Compass Community so therefore, a .bat file will be needed.
 MongoDB Compass Community does not create the folder we use to send all of our user inputted information too, MongoDB does. 
