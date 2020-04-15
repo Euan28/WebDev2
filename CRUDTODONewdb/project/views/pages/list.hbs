@@ -1,3 +1,6 @@
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+</head>
 <h3><a class="btn btn-secondary" href="/pages"><i class="fa fa-plus"></i> Create New</a> Module List</h3>
 <table class="table table-striped">
 	<thead>
@@ -23,4 +26,17 @@
 <div class="form-group"> 
     <a class="btn btn-secondary" href="/"><i class="fa fa-list-alt"></i> Milestones</a>
     <a class="btn btn-secondary" href="/pages/login"> Log Out</a>
+	<button class="btn btn-secondary" data-clipboard-text="localhost:3000/pages/list"> Share projects</button>
 </div>
+<script>
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function(e) {
+        console.log(e);
+		alert("Link has been copied! Send this to pupils so they can see!");
+    });
+
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+</script>
