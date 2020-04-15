@@ -160,7 +160,7 @@ function updateRecord(req, res) {
 router.get('/list', (req, res) => {
     Project.find((err, docs) => {
         if (!err) {
-            res.render("project/list", {
+            res.render("pages/list", {
                 list: docs
             });
         } else {
