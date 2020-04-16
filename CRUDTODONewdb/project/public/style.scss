@@ -22,6 +22,15 @@ body {
     box-shadow: 13px 13px 20px #cbced1,
                 -13px -13px 20px #ffffff;
 }
+.holder-wide {
+    width: 650px;
+    height: 700px;
+    padding: 60px 35px 35px 35px;
+    border-radius: 40px;
+    background: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #ffffff;
+}
 .title {
     text-align: center;
     font-size: 28px;
@@ -114,4 +123,22 @@ body {
     text-decoration: none;
     color: #aaa;
     font-size: 15px;
+}
+
+.projects-table {
+    color: #555;
+    padding: 20px 10px 20px 5px;
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;
+    th {
+        font-size: 20px;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
 }

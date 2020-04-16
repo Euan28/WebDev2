@@ -1,26 +1,34 @@
-<h3><a class="btn btn-secondary" href="/pages"><i class="fa fa-plus"></i> Create New</a> Module List</h3>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Coursework Project Title</th>
-			<th>Module</th>
-			<th>Due Date</th>
-			<th>Completion Date</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>{{#each list}}
-		<tr>
-			<td>{{this.project1}}</td>
-			<td>{{this.module}}</td>
-			<td>{{this.dueDate}}</td>
-			<td>{{this.comDate}}</td>
-			<td> <a href="/pages/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-				<a href="/pages/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
-			</td>
-		</tr>{{/each}}</tbody>
-</table>
-<div class="form-group"> 
-    <a class="btn btn-secondary" href="/"><i class="fa fa-list-alt"></i> Milestones</a>
-    <a class="btn btn-secondary" href="/pages/login"> Log Out</a>
+<div class="holder-wide">
+	<div class="title">Projects</div>
+
+	<table class="projects-table">
+		<thead>
+			<tr>
+				<th>Project</th>
+				<th>Module</th>
+				<th>Due Date</th>
+				<th>Completion Date</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>{{#each list}}
+			<tr>
+				<td>{{this.project1}}</td>
+				<td>{{this.module}}</td>
+				<td>{{this.dueDate}}</td>
+				<td>{{this.comDate}}</td>
+				<td> <a href="/pages/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+					<a href="/pages/delete/{{this._id}}"
+						onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg"
+							aria-hidden="true"></i></a>
+				</td>
+			</tr>{{/each}}</tbody>
+	</table>
+	<div class="link">
+		<a class="btn btn-secondary" href="/pages"><i class="fa fa-plus"></i>Add Project</a> or
+		<a class="btn btn-secondary" href="/"><i class="fa fa-list-alt"></i>Add Milestones</a>
+	</div>
+	<div class="link">
+		<a class="btn btn-secondary" href="/pages/login">Log Out</a>
+	</div>
 </div>
