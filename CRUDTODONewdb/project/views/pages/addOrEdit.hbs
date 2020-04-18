@@ -1,32 +1,54 @@
-<h3>Module List</h3>
-<form action="/pages" method="POST" autocomplete="off">
-	<input type="hidden" name="_id" value="{{project._id}}">
-	<div class="form-row">
-		<div class="form-group col-md-6">
-			<label>Coursework Project Title</label>
-			<input type="text" class="form-control" name="project1" placeholder="Coursework Project Title" value="{{project.project1}}">
-			<div class="text-danger">{{project.fullNameError}}</div>
-		</div>
-		<div class="form-group col-md-6">
-			<label>Module</label>
-			<input type="text" class="form-control" name="module" placeholder="Module" value="{{project.module}}">
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="form-group col-md-6">
-			<label>Due Date</label>
-			<input type="date" class="form-control" name="dueDate" placeholder="Due Date" value="{{project.dueDate}}">
-		</div>
-		<div class="form-group col-md-6">
-			<label>Completion Date</label>
-			<input type="date" class="form-control" name="comDate" placeholder="Completion Date" value="{{project.comDate}}">
-		</div>
-	</div>
-	<div class="form-group">
-		<button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
-		<br><br>
-        <a class="btn btn-secondary" href="/pages/list"><i class="fa fa-list-alt"></i> View Projects</a>
-		<a class="btn btn-secondary" href="/"><i class="fa fa-list-alt"></i> Add Milestones</a>
-        <a class="btn btn-secondary" href="/pages/login"> Log Out</a>
-	</div>
-</form>
+<div class="holder">
+    <div class="title">Add Project</div>
+    <div class="fields">
+        <form action="/pages" method="POST" autocomplete="off">
+            <input type="hidden" name="_id" value="{{project._id}}">
+            <div class="project-title">
+                <svg fill="#999" class="svg-icon" viewBox="0 0 20 20">
+                    <path
+                        d="M18.303,4.742l-1.454-1.455c-0.171-0.171-0.475-0.171-0.646,0l-3.061,3.064H2.019c-0.251,0-0.457,0.205-0.457,0.456v9.578c0,0.251,0.206,0.456,0.457,0.456h13.683c0.252,0,0.457-0.205,0.457-0.456V7.533l2.144-2.146C18.481,5.208,18.483,4.917,18.303,4.742 M15.258,15.929H2.476V7.263h9.754L9.695,9.792c-0.057,0.057-0.101,0.13-0.119,0.212L9.18,11.36h-3.98c-0.251,0-0.457,0.205-0.457,0.456c0,0.253,0.205,0.456,0.457,0.456h4.336c0.023,0,0.899,0.02,1.498-0.127c0.312-0.077,0.55-0.137,0.55-0.137c0.08-0.018,0.155-0.059,0.212-0.118l3.463-3.443V15.929z M11.241,11.156l-1.078,0.267l0.267-1.076l6.097-6.091l0.808,0.808L11.241,11.156z">
+                    </path>
+                </svg>
+                <input type="text" class="form-control" name="project1" placeholder="Coursework Project Title"
+                    value="{{project.project1}}">
+                <div class="text-danger">{{project.fullNameError}}</div>
+            </div>
+            <div class="module-name">
+                <svg fill="#999" class="svg-icon" viewBox="0 0 20 20">
+                    <path
+                        d="M17.927,5.828h-4.41l-1.929-1.961c-0.078-0.079-0.186-0.125-0.297-0.125H4.159c-0.229,0-0.417,0.188-0.417,0.417v1.669H2.073c-0.229,0-0.417,0.188-0.417,0.417v9.596c0,0.229,0.188,0.417,0.417,0.417h15.854c0.229,0,0.417-0.188,0.417-0.417V6.245C18.344,6.016,18.156,5.828,17.927,5.828 M4.577,4.577h6.539l1.231,1.251h-7.77V4.577z M17.51,15.424H2.491V6.663H17.51V15.424z">
+                    </path>
+                </svg>
+                <input type="text" class="form-control" name="module" placeholder="Module" value="{{project.module}}">
+            </div>
+            <div class="due-date">
+                <svg fill="#999" class="svg-icon" viewBox="0 0 20 20">
+                    <path
+                        d="M16.557,4.467h-1.64v-0.82c0-0.225-0.183-0.41-0.409-0.41c-0.226,0-0.41,0.185-0.41,0.41v0.82H5.901v-0.82c0-0.225-0.185-0.41-0.41-0.41c-0.226,0-0.41,0.185-0.41,0.41v0.82H3.442c-0.904,0-1.64,0.735-1.64,1.639v9.017c0,0.904,0.736,1.64,1.64,1.64h13.114c0.904,0,1.64-0.735,1.64-1.64V6.106C18.196,5.203,17.461,4.467,16.557,4.467 M17.377,15.123c0,0.453-0.366,0.819-0.82,0.819H3.442c-0.453,0-0.82-0.366-0.82-0.819V8.976h14.754V15.123z M17.377,8.156H2.623V6.106c0-0.453,0.367-0.82,0.82-0.82h1.639v1.23c0,0.225,0.184,0.41,0.41,0.41c0.225,0,0.41-0.185,0.41-0.41v-1.23h8.196v1.23c0,0.225,0.185,0.41,0.41,0.41c0.227,0,0.409-0.185,0.409-0.41v-1.23h1.64c0.454,0,0.82,0.367,0.82,0.82V8.156z">
+                    </path>
+                </svg>
+                <label>Due Date:</label>
+                <input type="date" class="form-control" name="dueDate" placeholder="Due Date"
+                    value="{{project.dueDate}}">
+            </div>
+            <div class="completion-date">
+                <svg fill="#999" class="svg-icon" viewBox="0 0 20 20">
+                    <path
+                        d="M16.557,4.467h-1.64v-0.82c0-0.225-0.183-0.41-0.409-0.41c-0.226,0-0.41,0.185-0.41,0.41v0.82H5.901v-0.82c0-0.225-0.185-0.41-0.41-0.41c-0.226,0-0.41,0.185-0.41,0.41v0.82H3.442c-0.904,0-1.64,0.735-1.64,1.639v9.017c0,0.904,0.736,1.64,1.64,1.64h13.114c0.904,0,1.64-0.735,1.64-1.64V6.106C18.196,5.203,17.461,4.467,16.557,4.467 M17.377,15.123c0,0.453-0.366,0.819-0.82,0.819H3.442c-0.453,0-0.82-0.366-0.82-0.819V8.976h14.754V15.123z M17.377,8.156H2.623V6.106c0-0.453,0.367-0.82,0.82-0.82h1.639v1.23c0,0.225,0.184,0.41,0.41,0.41c0.225,0,0.41-0.185,0.41-0.41v-1.23h8.196v1.23c0,0.225,0.185,0.41,0.41,0.41c0.227,0,0.409-0.185,0.409-0.41v-1.23h1.64c0.454,0,0.82,0.367,0.82,0.82V8.156z">
+                    </path>
+                </svg>
+                <label>Completion Date:</label>
+                <input type="date" class="form-control" name="comDate" placeholder="Completion Date"
+                    value="{{project.comDate}}">
+            </div>
+            <button type="submit" class="button"><i class="fa fa-database"></i> Submit</button>
+            <div class="link">
+                <a class="btn btn-secondary" href="/pages/list"><i class="fa fa-list-alt"></i> View Projects</a> or
+                <a class="btn btn-secondary" href="/"><i class="fa fa-list-alt"></i> Add Milestones</a>
+            </div>
+            <div class="link">
+                <a class="btn btn-secondary" href="/pages/login">Log Out</a>
+            </div>
+        </form>
+    </div>
+</div>
