@@ -40,7 +40,18 @@ body {
 .fields {
     padding: 75px 5px 5px 5px;
 }
+.field {
+    padding: 30px 5px 5px 5px;
+}
 .fields input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+    padding: 20px 10px 20px 5px;
+}
+.field input {
     border: none;
     outline: none;
     background: none;
@@ -57,10 +68,20 @@ body {
     box-shadow: inset 8px 8px 8px #cbced1,
                 inset -8px -8px 8px #ffffff;
 }
+.milestone {
+    margin-bottom: 5px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;
+}
 .due-date label, .completion-date label {
     font-weight: 500;
 }
 .fields svg {
+    height: 22px;
+    margin: 0 10px -3px 25px;
+}
+.field svg {
     height: 22px;
     margin: 0 10px -3px 25px;
 }
@@ -115,6 +136,32 @@ body {
     background: #1da88a;
 }
 
+.milestone-button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    height: 22px;
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    color: #fff;
+    text-align: center;
+    background: #24cfaa;
+    box-shadow: 3px 3px 8px #b1b1b1,
+                -3px -3px 8px #ffffff;
+    transition: 0.5s;
+}
+.milestone-button:hover {
+    background: #2fdbb6;
+}
+.milestone-button:active {
+    background: #1da88a;
+}
+
 .link {
     padding-top: 20px;
     text-align: center;
@@ -141,4 +188,10 @@ body {
         text-align: left;
         padding: 8px;
     }
+}
+
+.milestone-holder {
+    font-size: 20px;
+    text-align: left;
+    padding: 8px;
 }
