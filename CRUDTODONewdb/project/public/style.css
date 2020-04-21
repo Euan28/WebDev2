@@ -160,7 +160,7 @@ body {
   background: #1da88a;
 }
 
-.milestone-button {
+.milestone-button, .btn-success, .btn-default, .btn-danger {
   outline: none;
   border: none;
   cursor: pointer;
@@ -181,11 +181,11 @@ body {
   transition: 0.5s;
 }
 
-.milestone-button:hover {
+.milestone-button:hover, .btn-success:hover, .btn-default:hover, .btn-danger:hover {
   background: #2fdbb6;
 }
 
-.milestone-button:active {
+.milestone-button:active, .btn-success:active, .btn-default:active, .btn-danger:active {
   background: #1da88a;
 }
 
