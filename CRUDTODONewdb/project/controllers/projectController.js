@@ -76,7 +76,7 @@ router.post('/pages/login', function(req, res, next) {
             if (error) {
                 return next(error);
             } else {
-                return res.render('pages/addOrEdit');
+                return res.render('pages/home');
             }
         });
 
@@ -87,7 +87,7 @@ router.post('/pages/login', function(req, res, next) {
                 err.status = 401;
                 return next(err);
             } else {
-                return res.render('pages/addOrEdit');
+                return res.render('pages/home');
             }
         });
     } else {
