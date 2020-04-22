@@ -74,7 +74,7 @@ router.post('/pages/login', function(req, res, next) {
 //creating a new user
         User.create(userData, function(error, user) {
             if (error) {
-                return next(error);
+                res.send('Sorry, a user already exists with these details, please try again!');
             } else {
                 return res.render('pages/home');
             }
@@ -83,9 +83,7 @@ router.post('/pages/login', function(req, res, next) {
     } else if (req.body.logemail && req.body.logpassword) {
         User.authenticate(req.body.logemail, req.body.logpassword, function(error, user) {
             if (error || !user) {
-                var err = new Error('Wrong email or password.');
-                err.status = 401;
-                return next(err);
+                res.send('Sorry, you have used the wrong combination of email and password, please try again!');
             } else {
                 return res.render('pages/home');
             }
