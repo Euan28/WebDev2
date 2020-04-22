@@ -200,6 +200,17 @@ body {
   font-size: 15px;
 }
 
+.link-button {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.link-button a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
 .projects-table {
   color: #555;
   padding: 20px 10px 20px 5px;
