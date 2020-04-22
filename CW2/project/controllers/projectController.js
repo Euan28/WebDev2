@@ -1,4 +1,4 @@
-//dependencies 
+//dependencies and it requires both files in the models folder, task.js and user.js
 const express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
@@ -8,42 +8,49 @@ var User = require('../models/user');
 
 //router.get (GET request) and res.render (compiles your template) is used to get the directories 
 //and send the user to the page they which to be sent too, also validation like layout to choose the specific layout
+//renders the addOrEdit.hbs page
 router.get('/addOrEdit', (req, res) => {
     res.render("pages/addOrEdit", {
         viewTitle: "Insert Module"
     });
 });
 
+//renders the home.hbs page
 router.get('/home', (req, res) => {
     res.render('pages/home', {
         layout: 'main.hbs'
     });
 });
 
+//renders the login.hbs page
 router.get('/login', (req, res) => {
     res.render('pages/login', {
         layout: 'main.hbs'
     });
 });
 
+//renders the register.hbs page 
 router.get('/register', (req, res) => {
     res.render('pages/register', {
         layout: 'main.hbs'
     });
 });
 
+//renders the index.hbs page
 router.get('/index', function(req, res) {
     res.render('pages/index', {
         layout: 'main.hbs'
     });
 });
 
+//renders the edit.hbs page
 router.get('/edit', function(req, res) {
     res.render('pages/edit', {
         layout: 'main.hbs'
     });
 });
 
+//checks comparison of two values to either insert new data - runs the insertRecord function - or updates the data - runs the updateRecord function
 router.post('/', (req, res) => {
     if (req.body._id == '')
         insertRecord(req, res);
@@ -53,14 +60,14 @@ router.post('/', (req, res) => {
 
 //POST route for updating data
 router.post('/pages/login', function(req, res, next) {
-    // confirm that user typed same password twice
+    // confirm that user typed same password twice, if not it will inform the user
     if (req.body.password !== req.body.passwordConf) {
         var err = new Error('Passwords do not match.');
         err.status = 400;
         res.send("passwords dont match");
         return next(err);
     }
-
+    //the data inputted is inserted into the database, everything but the confirmed password
     if (req.body.email &&
         req.body.username &&
         req.body.password &&
@@ -71,7 +78,7 @@ router.post('/pages/login', function(req, res, next) {
             username: req.body.username,
             password: req.body.password,
         }
-//creating a new user
+        //creating a new user, if the user already exists the application with inform the user, otherwise, it will render the home.hbs page
         User.create(userData, function(error, user) {
             if (error) {
                 res.send('Sorry, a user already exists with these details, please try again!');
@@ -79,7 +86,7 @@ router.post('/pages/login', function(req, res, next) {
                 return res.render('pages/home');
             }
         });
-
+    //authenticatication for 
     } else if (req.body.logemail && req.body.logpassword) {
         User.authenticate(req.body.logemail, req.body.logpassword, function(error, user) {
             if (error || !user) {

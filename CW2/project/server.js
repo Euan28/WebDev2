@@ -1,7 +1,8 @@
+//server.js file requires both files in the models folder, project.model.js and task.js
 require('./models/project.model');
 require('./models/task');
 
-//dependencies 
+//dependencies, these are in the package.json, showing the versions that we have used
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -13,13 +14,16 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
-//setting up the database
+//setting up the database 'cw2Database', on localhost port 27017, 'useNewUrlParser' is set to true to avoid the error - “current URL string 
+//parser is deprecated” warning. Furthermore, if there is no error, the console.log (terminal) will display the message 'MongoDB Connection
+//Succeeded.'. However, if there is an error, the console.log (terminal) will display the message 'Error in DB connection :' following by the error
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/cw2Database', { useNewUrlParser: true }, (err) => {
     if (!err) { console.log('MongoDB Connection Succeeded.') }
     else { console.log('Error in DB connection : ' + err) }
 });
 
+//setting variable db to the connection with mongoose, what we need to connect to our database
 var db = mongoose.connection;
 
 //handle mongo error
@@ -36,9 +40,8 @@ app.use(session({
   })
 }));
 
+//creating a variable to require the controller file, projectController.js
 const projectController = require('./controllers/projectController');
-
-var app = express();
 
 //setting up morgan middleware
 app.use(logger('dev'));
@@ -65,13 +68,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 const index = require('./routes/index');
 const api = require('./routes/api');
 
+//Uses the routes folder files, api and index
 app.use('/', index);
 app.use('/api', api);
 
-//server starts on port 3000
+//Express server starts on port 3000
 app.listen(3000, () => {
     console.log('Express server started at port : 3000');
 });
 
+//Uses the route /pages controller file, projectController
 app.use('/pages', projectController.router);
 
