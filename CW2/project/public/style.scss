@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body {
+    margin:0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    background: #ecf0f3;
+}
+.holder {
+    width: 430px;
+    height: 700px;
+    padding: 60px 35px 35px 35px;
+    border-radius: 40px;
+    background: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #ffffff;
+}
+.holder-wide {
+    width: 650px;
+    height: 700px;
+    padding: 60px 35px 35px 35px;
+    border-radius: 40px;
+    background: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #ffffff;
+}
+.title {
+    text-align: center;
+    font-size: 28px;
+    padding-top: 24px;
+    letter-spacing: 0.5px;
+}
+.fields {
+    padding: 75px 5px 5px 5px;
+}
+.field {
+    padding: 30px 5px 5px 5px;
+}
+.fields input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+    padding: 20px 10px 20px 5px;
+}
+.field input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+    padding: 20px 10px 20px 5px;
+}
+.email, .project-title, .edit-milestone {
+    margin-top: 35px;
+}
+.email, .password, .username, .project-title, .module-name, .due-date, .completion-date, .edit-milestone {
+    margin-bottom: 30px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;
+}
+.milestone {
+    margin-bottom: 5px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;
+}
+.due-date label, .completion-date label {
+    font-weight: 500;
+}
+.fields svg {
+    height: 22px;
+    margin: 0 10px -3px 25px;
+}
+.field svg {
+    height: 22px;
+    margin: 0 10px -3px 25px;
+}
+
+.login-button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    margin-top: 212px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    color: #fff;
+    text-align: center;
+    background: #24cfaa;
+    box-shadow: 3px 3px 8px #b1b1b1,
+                -3px -3px 8px #ffffff;
+    transition: 0.5s;
+}
+.login-button:hover {
+    background: #2fdbb6;
+}
+.login-button:active {
+    background: #1da88a;
+}
+
+.button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    color: #fff;
+    text-align: center;
+    background: #24cfaa;
+    box-shadow: 3px 3px 8px #b1b1b1,
+                -3px -3px 8px #ffffff;
+    transition: 0.5s;
+}
+.button:hover {
+    background: #2fdbb6;
+}
+.button:active {
+    background: #1da88a;
+}
+
+.milestone-button, .btn-success, .btn-default,  .btn-danger {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    height: 22px;
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    color: #fff;
+    text-align: center;
+    background: #24cfaa;
+    box-shadow: 3px 3px 8px #b1b1b1,
+                -3px -3px 8px #ffffff;
+    transition: 0.5s;
+}
+.milestone-button:hover, .btn-success:hover, .btn-default:hover,  .btn-danger:hover {
+    background: #2fdbb6;
+}
+.milestone-button:active, .btn-success:active, .btn-default:active,  .btn-danger:active {
+    background: #1da88a;
+}
+
+.link {
+    padding-top: 20px;
+    text-align: center;
+}
+.link a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 15px;
+}
+
+.link-button {
+    padding-top: 20px;
+    text-align: center;
+}
+.link-button a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.projects-table {
+    color: #555;
+    padding: 20px 10px 20px 5px;
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;
+    th {
+        font-size: 20px;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+}
+
+.milestone-holder {
+    font-size: 20px;
+    text-align: left;
+    padding: 8px;
+}

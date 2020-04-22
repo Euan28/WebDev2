@@ -15,7 +15,7 @@ var MongoStore = require('connect-mongo')(session);
 
 //setting up the database
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/testForAuth', { useNewUrlParser: true }, (err) => {
+mongoose.connect('mongodb://localhost:27017/cw2Database', { useNewUrlParser: true }, (err) => {
     if (!err) { console.log('MongoDB Connection Succeeded.') }
     else { console.log('Error in DB connection : ' + err) }
 });
