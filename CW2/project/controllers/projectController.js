@@ -8,7 +8,7 @@ var User = require('../models/user');
 
 //router.get (GET request) and res.render (compiles your template) is used to get the directories 
 //and send the user to the page they which to be sent too, also validation like layout to choose the specific layout
-router.get('/', (req, res) => {
+router.get('/addOrEdit', (req, res) => {
     res.render("pages/addOrEdit", {
         viewTitle: "Insert Module"
     });

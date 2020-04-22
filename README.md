@@ -5,7 +5,7 @@ Ensure that .bat file is running (Start MongoDBCRUDTODONewdb)
 This application uses MongoDB and MongoDB Compass Community so therefore, a .bat file will be needed.
 MongoDB Compass Community does not create the folder we use to send all of our user inputted information too, MongoDB does. 
 Therefore, both were needed to be installed to allow this application to work. 
-In MongoDB CC, we created a database called 'testForAuth' with collections such as employees and tasks (milestones).
+In MongoDB CC, we created a database called 'testForAuth' with collections such as 'employees' and tasks (milestones).
 cd "directory, depends on where you have the folder"
 cd CRUDTODONewdb
 cd project
