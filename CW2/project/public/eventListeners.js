@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
-
 //index page events
-//click even for creating a milestone/coursework
+//click event for creating a milestone/coursework
   $('#create').on('click', function(e) {
       createTask(e);
   });
@@ -53,5 +52,4 @@ $(document).ready(function() {
           editTask(e, id)
       }
   });
-
 });

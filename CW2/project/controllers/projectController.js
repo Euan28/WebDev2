@@ -58,6 +58,8 @@ router.post('/', (req, res) => {
         updateRecord(req, res);
 });
 
+//login and registration section - use of login.hbs and register.hbs
+
 //POST route for updating data
 router.post('/pages/login', function(req, res, next) {
     // confirm that user typed same password twice, if not it will inform the user
@@ -86,7 +88,8 @@ router.post('/pages/login', function(req, res, next) {
                 return res.render('pages/home');
             }
         });
-    //authenticatication for 
+    //authenticatication for the user when logging in, if the either the email or password is incorrect, then the user will be informed of the wrong
+    //combination, otherwise it will render the home.hbs page
     } else if (req.body.logemail && req.body.logpassword) {
         User.authenticate(req.body.logemail, req.body.logpassword, function(error, user) {
             if (error || !user) {
@@ -95,6 +98,7 @@ router.post('/pages/login', function(req, res, next) {
                 return res.render('pages/home');
             }
         });
+    //validation to ensure that all input fields have been used, if not, the error message will appear to the user
     } else {
         var err = new Error('All fields required.');
         err.status = 400;
@@ -102,7 +106,7 @@ router.post('/pages/login', function(req, res, next) {
     }
 })
 
-//GET reuqest for logout
+//GET reuqest for logout, if the user logs out, it will render the login.hbs page
 router.get('/logout', function(req, res, next) {
     if (req.session) {
         // delete session object
@@ -116,7 +120,11 @@ router.get('/logout', function(req, res, next) {
     }
 });
 
-//inserting data considering the project, coursework etc including validation
+//project page section - addOrEdit.hbs and list.hbs
+
+//inserting data considering the project, coursework etc including validation, if there is no error with the inputted validation, the user will 
+//be redirected to the list.hbs page, else if the error is a validation error, it will render the addOrEdit.hbs page and else will state to the
+//user that there was an error with inserting a new record of data followed by the type of error
 function insertRecord(req, res) {
     var project = new Project();
     project.project1 = req.body.project1;
@@ -139,7 +147,9 @@ function insertRecord(req, res) {
     });
 }
 
-//function to allow users to be able to edit their list of courseworks etc
+//function to allow users to be able to edit their list of courseworks etc, if there is no errors, the user will be redirected to the list.hbs page
+//however, if there is an error that is a validation error, it will render the addOrEdit.hbs page and else will state to the
+//user that there was an error with inserting a new record of data followed by the type of error
 function updateRecord(req, res) {
     Project.findOneAndUpdate({
         _id: req.body._id
@@ -161,7 +171,8 @@ function updateRecord(req, res) {
     });
 }
 
-//get reuqest to get the list rendered
+//get reuqest to get the list.hbs page rendered if there is no error, else it will display the message in the console log that there was trouble
+//in retrieving the module list
 router.get('/list', (req, res) => {
     Project.find((err, docs) => {
         if (!err) {
@@ -174,7 +185,8 @@ router.get('/list', (req, res) => {
     });
 });
 
-//function for if these fields hit an error
+//function for if these fields hit an error, for reference, the addOrEdit.hbs page in the div section with the class 'text-danger' for the fullName
+//validation, wherease the module is 10 lines below it in an input field
 function handleValidationError(err, body) {
     for (field in err.errors) {
         switch (err.errors[field].path) {
@@ -190,7 +202,7 @@ function handleValidationError(err, body) {
     }
 }
 
-//finding the inserted data by id and rendering the page with updated data
+//finding the inserted data by id and rendering the addOrEdit.hbs page with updated data
 router.get('/:id', (req, res) => {
     Project.findById(req.params.id, (err, doc) => {
         if (!err) {
@@ -202,7 +214,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
-//deleting selecting coursework/module
+//deleting selecting coursework/module and redirecting the user to the list.hbs page, unless there is an error in which the console.log
+//will display a message followed by the error
 router.get('/delete/:id', (req, res) => {
     Project.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
@@ -213,16 +226,18 @@ router.get('/delete/:id', (req, res) => {
     });
 });
 
-//sorting tasks
+//milestone section - index.hbs file and edit.hbs 
+
+//sorting tasks, sets them to lowercase, also keeps them in alphabetical order
 const sortTask = (a, b) => {
     const taskA = a.task.toLowerCase();
     const taskB = b.task.toLowerCase();
     return (taskA < taskB) ? -1 : (taskA > taskB) ? 1 : 0;
 }
 
-//milestones section
 //render the index page and show the result
-//notice note the public folder for further details
+//note the public folder for further details
+//findAll uses the sortTask as explained above and renders the index.hbs page using the main.hbs layout in the layouts folder
 module.exports = {
     findAll: function(req, res) {
         Task
@@ -246,7 +261,7 @@ module.exports = {
             })
             .catch(err => res.json(err));
     },
-
+    //finding the task when you wish to edit it, it will render the edit.hbs page so you can edit this specific milestone
     findOne: function(req, res) {
         Task
             .findOne({

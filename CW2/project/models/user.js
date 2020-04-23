@@ -22,7 +22,8 @@ var UserSchema = new mongoose.Schema({
     }
 });
 
-//authenticate input against database
+//authenticate input against database, return the user if found, if there is not user then an error message will be displayed, if all is good
+//bcrypt module will be used to compare the password before hashing it in the next function
 UserSchema.statics.authenticate = function(email, password, callback) {
     User.findOne({
             email: email

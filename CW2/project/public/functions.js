@@ -97,7 +97,7 @@ function editTask(e, id) {
           type: 'POST',
           data: task,
           success: function(response) {
-              //redirecting to the index page
+              //redirecting
               window.location.href = '/';
           },
           error: function(err) {
