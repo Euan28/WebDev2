@@ -25,18 +25,18 @@ body {
   padding: 60px 35px 35px 35px;
   border-radius: 40px;
   background: #ecf0f3;
-  -webkit-box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
-          box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+  -webkit-box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+          box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
 }
 
 .holder-wide {
-  width: 650px;
+  width: 750px;
   height: 700px;
   padding: 60px 35px 35px 35px;
   border-radius: 40px;
   background: #ecf0f3;
-  -webkit-box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
-          box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+  -webkit-box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+          box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
 }
 
 .title {
@@ -79,15 +79,15 @@ body {
 .email, .password, .username, .project-title, .module-name, .due-date, .completion-date, .edit-milestone {
   margin-bottom: 30px;
   border-radius: 25px;
-  -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
-          box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+          box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
 }
 
 .milestone {
   margin-bottom: 5px;
   border-radius: 25px;
-  -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
-          box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+          box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
 }
 
 .due-date label, .completion-date label {
@@ -100,6 +100,16 @@ body {
 }
 
 .field svg {
+  height: 22px;
+  margin: 0 10px -3px 25px;
+}
+
+.svg-cog svg {
+  height: 22px;
+  margin: 0 10px -3px 10px;
+}
+
+.svg-bin svg {
   height: 22px;
   margin: 0 10px -3px 25px;
 }
@@ -118,8 +128,8 @@ body {
   color: #fff;
   text-align: center;
   background: #24cfaa;
-  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
-          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -146,8 +156,8 @@ body {
   color: #fff;
   text-align: center;
   background: #24cfaa;
-  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
-          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -175,8 +185,8 @@ body {
   color: #fff;
   text-align: center;
   background: #24cfaa;
-  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
-          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -217,8 +227,8 @@ body {
   width: 100%;
   margin-top: 30px;
   border-radius: 25px;
-  -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
-          box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+          box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
 }
 
 .projects-table th {

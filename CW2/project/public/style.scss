@@ -23,7 +23,7 @@ body {
                 -13px -13px 20px #ffffff;
 }
 .holder-wide {
-    width: 650px;
+    width: 750px;
     height: 700px;
     padding: 60px 35px 35px 35px;
     border-radius: 40px;
@@ -82,6 +82,16 @@ body {
     margin: 0 10px -3px 25px;
 }
 .field svg {
+    height: 22px;
+    margin: 0 10px -3px 25px;
+}
+
+.svg-cog svg {
+    height: 22px;
+    margin: 0 10px -3px 10px;
+}
+
+.svg-bin svg {
     height: 22px;
     margin: 0 10px -3px 25px;
 }
